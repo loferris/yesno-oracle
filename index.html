@@ -15,7 +15,9 @@
 </style>
 <script>var yesNo = ["Yes", "No"]
 var randomYesNo = yesNo[Math.floor(Math.random()*yesNo.length)];
-document.getElementById("userQ").innerHTML = randomYesNo;
+window.onload = function(){
+  document.getElementById("userQ").innerHTML = randomYesNo;
+}
 </script>
   </head>
   <body>
