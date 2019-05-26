@@ -2,8 +2,25 @@
 <html>
   <head>
     <title>"here is yr answer ^.^"</title>
+    <style>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(pink,white);
+      font-size: 30px;
+      font-family: Courier;
+    }
+    #userQ {
+      text-align: center;
+    }
+</style>
+<script>var yesNo = ["Yes", "No"]
+var randomYesNo = yesNo[Math.floor(Math.random()*yesNo.length)];
+document.getElementById("userQ").innerHTML = randomYesNo;
+</script>
   </head>
   <body>
-    <div id="userQ"></div>
+    <div id="userQ">
+      <pre>"Enable Javascript to receive an answer. ^.^"</pre>
+    </div>
   </body>
   </html>
