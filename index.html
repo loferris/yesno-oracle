@@ -17,8 +17,11 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
-</style>
-<script>var yesNo = ["Yes", "No"]
+        </style>
+<script>
+var userInput = prompt("what is yr q?");
+alert("wld you like yr answer ^.^?");
+var yesNo = ["Yes", "No"]
 var randomYesNo = yesNo[Math.floor(Math.random()*yesNo.length)];
 window.onload = function(){
   document.getElementById("userQ").innerHTML = randomYesNo;
