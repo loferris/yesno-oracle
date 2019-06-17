@@ -19,10 +19,10 @@
     }
         </style>
 <script>
-var userInput = prompt("what is yr q?");
+const userInput = prompt("what is yr q?");
 alert("wld you like yr answer ^.^?");
-var yesNo = ["Yes", "No"]
-var randomYesNo = yesNo[Math.floor(Math.random()*yesNo.length)];
+const yesNo = ["Yes", "No"]
+let randomYesNo = yesNo[Math.floor(Math.random()*yesNo.length)];
 window.onload = function(){
   document.getElementById("userQ").innerHTML = randomYesNo;
 }
