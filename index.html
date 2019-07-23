@@ -5,7 +5,7 @@
     <style>
     body {
       min-height: 100vh;
-      background: linear-gradient(pink,white);
+      background: linear-gradient(aquamarine, white);
       font-size: 300px;
       font-family: Helvetica;
       font-weight: lighter;
@@ -19,7 +19,8 @@
     }
         </style>
 <script>
-const userInput = prompt("what is yr q?");
+const userInput = document.createElement('textarea');
+userInput.type = 'input';
 alert("wld you like yr answer ^.^?");
 const yesNo = ["Yes", "No"]
 let randomYesNo = yesNo[Math.floor(Math.random()*yesNo.length)];
