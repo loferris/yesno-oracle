@@ -7,6 +7,7 @@ const AppDiv = styled.div`
   height: 100vh;
   width: 100vw;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   background-color: #d9e4f5;
