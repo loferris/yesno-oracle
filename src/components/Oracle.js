@@ -14,13 +14,13 @@ const fadeIn = keyframes`
 `;
 
 const OracleDiv = styled.div`
-  height: 75vh;
-  width: 75vw;
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #eed1d6;
-  padding: 20px;
+  background: linear-gradient(135deg, #d9e4f5 0%, #f5e3e6 100%);
+  padding: 40px 20px;
   box-sizing: border-box;
 `;
 
@@ -30,7 +30,12 @@ const InnerDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 32px;
+  background-color: rgba(238, 209, 214, 0.6);
+  padding: 48px 32px;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
 `;
 
 const FormContainer = styled.form`
@@ -38,29 +43,33 @@ const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
 `;
 
 const Input = styled.input`
-  border-radius: 15px 30px;
+  border-radius: 12px;
   border: 2px solid mistyrose;
-  height: 50px;
+  height: 52px;
   min-height: 44px;
   width: 100%;
-  max-width: 400px;
-  font-size: 100%;
+  font-size: 16px;
   outline: none;
-  padding: 0 12px;
+  padding: 0 16px;
   transition: all 0.2s ease;
   box-sizing: border-box;
+  background: white;
 
   &:focus {
     border-color: #ffc0cb;
-    box-shadow: 0 0 8px rgba(255, 192, 203, 0.5);
+    box-shadow: 0 0 0 3px rgba(255, 192, 203, 0.2);
   }
 
   &:hover {
     border-color: #ffb6c1;
+  }
+
+  &::placeholder {
+    color: #bbb;
   }
 `;
 
@@ -69,15 +78,17 @@ const Label = styled.label`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   width: 100%;
-  font-size: 150%;
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
 `;
 
 const CharCounter = styled.span`
-  font-size: 12px;
-  color: #999;
-  margin-top: -8px;
+  font-size: 13px;
+  color: #888;
+  font-weight: normal;
 `;
 
 const P = styled.p`
@@ -88,48 +99,54 @@ const P = styled.p`
 `;
 
 const Button = styled.button`
-  border-radius: 15px 30px;
+  border-radius: 12px;
   outline: none;
   min-height: 44px;
-  padding: 8px 16px;
+  padding: 14px 32px;
   cursor: pointer;
   transition: all 0.2s ease;
   background-color: white;
-  border: 2px solid #ddd;
+  border: 2px solid #ffc0cb;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
 
   &:hover:not(:disabled) {
-    background-color: #fff0f5;
-    border-color: #ffc0cb;
+    background-color: #ffc0cb;
+    color: white;
     transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(255, 192, 203, 0.4);
   }
 
   &:active:not(:disabled) {
     transform: translateY(0);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(255, 192, 203, 0.3);
   }
 
   &:disabled {
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
+    border-color: #ddd;
   }
 `;
 
 const Answer = styled.p`
-  font-size: 200%;
+  font-size: 48px;
   font-weight: bold;
   text-align: center;
   animation: ${fadeIn} 0.5s ease;
   color: ${props => (props.answer === "Yes" ? "#4CAF50" : "#f44336")};
-  margin-top: 20px;
+  margin: 8px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 
 const LoadingText = styled.p`
-  font-size: 120%;
+  font-size: 18px;
   text-align: center;
   font-style: italic;
-  color: #999;
+  color: #666;
   animation: ${fadeIn} 0.3s ease;
+  margin: 8px 0;
 `;
 
 const Oracle = () => {
