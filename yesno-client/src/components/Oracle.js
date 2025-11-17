@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled from "@emotion/styled";
-import { keyframes } from "@emotion/core";
+import { keyframes } from "@emotion/react";
 
 const fadeIn = keyframes`
   from {
