@@ -127,7 +127,7 @@ const Button = styled.button`
 
 const Answer = styled.p`
   font-size: 56px;
-  font-weight: 600;
+  font-weight: 400;
   text-align: center;
   animation: ${fadeIn} 0.5s ease;
   color: ${props => (props.answer === "yes" ? "#7b68ee" : "#d946a6")};
