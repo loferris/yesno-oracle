@@ -203,12 +203,6 @@ const Oracle = () => {
     setError(false); // Clear error when they start typing
   };
 
-  const handleKeyPress = ev => {
-    if (ev.key === "Enter") {
-      handleSubmit(ev);
-    }
-  };
-
   return (
     <OracleDiv>
       <InnerDiv>
@@ -222,7 +216,6 @@ const Oracle = () => {
               maxLength="45"
               value={question}
               onChange={handleChange}
-              onKeyPress={handleKeyPress}
               aria-label="Ask your question"
               placeholder="Type your question..."
             />
@@ -236,7 +229,6 @@ const Oracle = () => {
             answer me
           </Button>
         </FormContainer>
-        {question && !isLoading && !answer && !error && <P>{question}</P>}
         {isLoading && <LoadingText>consulting the oracle...</LoadingText>}
         {error && <ErrorText>there can be no answer without a question (⌒_⌒;)</ErrorText>}
         {answer && <Answer answer={answer}>{answer}</Answer>}
