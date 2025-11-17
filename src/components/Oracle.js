@@ -82,7 +82,7 @@ const Label = styled.label`
   width: 100%;
   font-size: 24px;
   font-weight: 500;
-  color: #333;
+  color: #8b5a99;
 `;
 
 const CharCounter = styled.span`
@@ -106,21 +106,21 @@ const Button = styled.button`
   cursor: pointer;
   transition: all 0.2s ease;
   background-color: white;
-  border: 2px solid #ffc0cb;
+  border: 2px solid #c9a0dc;
   font-size: 16px;
   font-weight: 500;
-  color: #333;
+  color: #8b5a99;
 
   &:hover:not(:disabled) {
-    background-color: #ffc0cb;
+    background-color: #c9a0dc;
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 192, 203, 0.4);
+    box-shadow: 0 4px 12px rgba(201, 160, 220, 0.4);
   }
 
   &:active:not(:disabled) {
     transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(255, 192, 203, 0.3);
+    box-shadow: 0 2px 8px rgba(201, 160, 220, 0.3);
   }
 
   &:disabled {
@@ -131,20 +131,22 @@ const Button = styled.button`
 `;
 
 const Answer = styled.p`
-  font-size: 48px;
-  font-weight: bold;
+  font-size: 56px;
+  font-weight: 600;
   text-align: center;
   animation: ${fadeIn} 0.5s ease;
-  color: ${props => (props.answer === "Yes" ? "#4CAF50" : "#f44336")};
+  color: ${props => (props.answer === "Yes" ? "#7b68ee" : "#d946a6")};
   margin: 8px 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  letter-spacing: 0.5px;
 `;
 
 const LoadingText = styled.p`
   font-size: 18px;
   text-align: center;
   font-style: italic;
-  color: #666;
+  color: #8b5a99;
   animation: ${fadeIn} 0.3s ease;
   margin: 8px 0;
 `;
@@ -201,7 +203,7 @@ const Oracle = () => {
       <InnerDiv>
         <FormContainer onSubmit={handleSubmit}>
           <Label>
-            ask a q ^.^
+            ask away ^.^
             <Input
               ref={inputRef}
               type="text"
