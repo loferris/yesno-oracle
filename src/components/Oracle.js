@@ -92,13 +92,6 @@ const CharCounter = styled.span`
   font-weight: normal;
 `;
 
-const P = styled.p`
-  font-size: 100%;
-  text-align: center;
-  overflow-x: auto;
-  overflow-y: hidden;
-`;
-
 const Button = styled.button`
   border-radius: 12px;
   outline: none;
