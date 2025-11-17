@@ -58,6 +58,7 @@ const Input = styled.input`
   transition: all 0.2s ease;
   box-sizing: border-box;
   background: white;
+  color: #8b5a99;
 
   &:focus {
     border-color: #ffc0cb;
@@ -129,10 +130,9 @@ const Answer = styled.p`
   font-weight: 600;
   text-align: center;
   animation: ${fadeIn} 0.5s ease;
-  color: ${props => (props.answer === "Yes" ? "#7b68ee" : "#d946a6")};
+  color: ${props => (props.answer === "yes" ? "#7b68ee" : "#d946a6")};
   margin: 8px 0;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
   letter-spacing: 0.5px;
 `;
 
@@ -169,7 +169,7 @@ const Oracle = () => {
   }, []);
 
   const randomAnswer = () => {
-    return Math.random() >= 0.5 ? "Yes" : "No";
+    return Math.random() >= 0.5 ? "yes" : "no";
   };
 
   const handleSubmit = ev => {
