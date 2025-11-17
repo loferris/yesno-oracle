@@ -111,22 +111,16 @@ const Button = styled.button`
   font-weight: 500;
   color: #8b5a99;
 
-  &:hover:not(:disabled) {
+  &:hover {
     background-color: #c9a0dc;
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(201, 160, 220, 0.4);
   }
 
-  &:active:not(:disabled) {
+  &:active {
     transform: translateY(0);
     box-shadow: 0 2px 8px rgba(201, 160, 220, 0.3);
-  }
-
-  &:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    border-color: #ddd;
   }
 `;
 
@@ -142,6 +136,15 @@ const Answer = styled.p`
   letter-spacing: 0.5px;
 `;
 
+const ErrorText = styled.p`
+  font-size: 16px;
+  text-align: center;
+  font-style: italic;
+  color: #d946a6;
+  animation: ${fadeIn} 0.3s ease;
+  margin: 8px 0;
+`;
+
 const LoadingText = styled.p`
   font-size: 18px;
   text-align: center;
@@ -155,6 +158,7 @@ const Oracle = () => {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -173,6 +177,7 @@ const Oracle = () => {
     if (question.trim()) {
       setIsLoading(true);
       setAnswer("");
+      setError(false);
 
       // Brief delay for mystical effect
       setTimeout(() => {
@@ -185,11 +190,17 @@ const Oracle = () => {
           inputRef.current.focus();
         }
       }, 800);
+    } else {
+      // Show error if empty
+      setError(true);
+      setAnswer("");
+      setIsLoading(false);
     }
   };
 
   const handleChange = ev => {
     setQuestion(ev.target.value);
+    setError(false); // Clear error when they start typing
   };
 
   const handleKeyPress = ev => {
@@ -203,7 +214,7 @@ const Oracle = () => {
       <InnerDiv>
         <FormContainer onSubmit={handleSubmit}>
           <Label>
-            ask away ^.^
+            ask away ( Φ ω Φ )
             <Input
               ref={inputRef}
               type="text"
@@ -220,14 +231,14 @@ const Oracle = () => {
           <Button
             type="submit"
             onClick={handleSubmit}
-            disabled={!question.trim()}
             aria-label="Get your answer"
           >
             answer me
           </Button>
         </FormContainer>
-        {question && !isLoading && !answer && <P>{question}</P>}
+        {question && !isLoading && !answer && !error && <P>{question}</P>}
         {isLoading && <LoadingText>consulting the oracle...</LoadingText>}
+        {error && <ErrorText>there can be no answer without a question (⌒_⌒;)</ErrorText>}
         {answer && <Answer answer={answer}>{answer}</Answer>}
       </InnerDiv>
     </OracleDiv>
