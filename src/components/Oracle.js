@@ -17,15 +17,28 @@ const OracleDiv = styled.div`
   height: 75vh;
   width: 75vw;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #eed1d6;
+  padding: 20px;
+  box-sizing: border-box;
 `;
 
 const InnerDiv = styled.div`
-  height: 25%;
-  width: 25%;
-  font-size: 150%;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+`;
+
+const FormContainer = styled.form`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 `;
 
 const Input = styled.input`
@@ -33,10 +46,13 @@ const Input = styled.input`
   border: 2px solid mistyrose;
   height: 50px;
   min-height: 44px;
+  width: 100%;
+  max-width: 400px;
   font-size: 100%;
   outline: none;
   padding: 0 12px;
   transition: all 0.2s ease;
+  box-sizing: border-box;
 
   &:focus {
     border-color: #ffc0cb;
@@ -50,12 +66,18 @@ const Input = styled.input`
 
 const Label = styled.label`
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  font-size: 150%;
 `;
 
 const CharCounter = styled.span`
   font-size: 12px;
   color: #999;
-  margin-left: 8px;
+  margin-top: -8px;
 `;
 
 const P = styled.p`
@@ -160,10 +182,9 @@ const Oracle = () => {
   return (
     <OracleDiv>
       <InnerDiv>
-        <form onSubmit={handleSubmit}>
+        <FormContainer onSubmit={handleSubmit}>
           <Label>
             ask a q ^.^
-            <br></br>
             <Input
               ref={inputRef}
               type="text"
@@ -177,7 +198,6 @@ const Oracle = () => {
             />
             <CharCounter>{question.length}/45</CharCounter>
           </Label>
-          <br></br>
           <Button
             type="submit"
             onClick={handleSubmit}
@@ -186,8 +206,7 @@ const Oracle = () => {
           >
             answer me
           </Button>
-        </form>
-        <br></br>
+        </FormContainer>
         {question && !isLoading && !answer && <P>{question}</P>}
         {isLoading && <LoadingText>consulting the oracle...</LoadingText>}
         {answer && <Answer answer={answer}>{answer}</Answer>}
